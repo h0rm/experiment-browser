@@ -6,16 +6,16 @@
     "deep-equal": "^1.0.1",
     "eslint-config-defaults": "^9.0.0",
     "eslint-config-react-tools": "^1.0.10",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.11",
     "namor": "^1.0.1",
-    "react": "^16.1.1",
+    "react": "^16.7.0",
     "react-addons-update": "^15.6.2",
-    "react-dom": "^16.1.1",
+    "react-dom": "^16.7.0",
     "react-dropdown-tree-select": "^1.0.4",
     "react-json-inspector": "^7.1.1",
-    "react-scripts": "1.0.17",
+    "react-scripts": "^2.1.1",
     "react-table": "^6.7.4",
-    "recharts": "^1.0.0-beta.2"
+    "recharts": "^1.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +34,11 @@
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-react": "^7.5.1",
     "flow-bin": "^0.59.0"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
