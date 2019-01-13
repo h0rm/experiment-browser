@@ -1,0 +1,1167 @@
+[
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_sfd_pretrained"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_sfd_pretrained",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": "~/tensorboard/facial-beauty-prediction/scut-regression-sfd-2018-11-28-17-18/checkpoint_16.pth",
+            "weights_transform": null
+        },
+        "started_training": "2018-11-28-18-10",
+        "hash": "cb09dc88b1b6e225d7b9bee4cf29cebfc6ea8214",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.03976399294558722,
+            "CFD_All-train85_MAE_competent": 0.03410033099574857,
+            "CFD_All-train85_MAE_dominant": 0.04283589136747256,
+            "CFD_All-train85_MAE_extroverted": 0.03535155738502182,
+            "CFD_All-train85_MAE_likeable": 0.037446726010353065,
+            "CFD_All-train85_MAE_threatening": 0.04049096945957675,
+            "CFD_All-train85_MAE_trustworthy": 0.03486549244830265,
+            "CFD_All-test85_MAE_attractive": 0.34028730979300453,
+            "CFD_All-test85_MAE_competent": 0.2601586600548741,
+            "CFD_All-test85_MAE_dominant": 0.3293760795113819,
+            "CFD_All-test85_MAE_extroverted": 0.3140513715024402,
+            "CFD_All-test85_MAE_likeable": 0.33040484574942264,
+            "CFD_All-test85_MAE_threatening": 0.34766318535243596,
+            "CFD_All-test85_MAE_trustworthy": 0.32592737548381795,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.0084487684071064,
+            "step": 9984
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_warp_pretrained"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_warp_pretrained",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_warp_224_10_110_10_40",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1,
+            "weight_decay": 0
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_warp_224_10_110_10_40",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": "~/tensorboard/facial-beauty-prediction/scut-regression-sfd-2018-11-28-17-18/checkpoint_16.pth",
+            "weights_transform": null
+        },
+        "started_training": "2018-12-07-17-58",
+        "hash": "1fe2b7c1c4549afcaa7fa636257038d4197fabc4",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.07611500588532806,
+            "CFD_All-train85_MAE_competent": 0.06637223041825971,
+            "CFD_All-train85_MAE_dominant": 0.14776416722810437,
+            "CFD_All-train85_MAE_extroverted": 0.06268854383013675,
+            "CFD_All-train85_MAE_likeable": 0.12613196268783972,
+            "CFD_All-train85_MAE_threatening": 0.07355677297175883,
+            "CFD_All-train85_MAE_trustworthy": 0.08905114363353009,
+            "CFD_All-train85_PCC_attractive": 0.9922185680082463,
+            "CFD_All-train85_PCC_competent": 0.984319847949872,
+            "CFD_All-train85_PCC_dominant": 0.9847265939511591,
+            "CFD_All-train85_PCC_extroverted": 0.9896335167290072,
+            "CFD_All-train85_PCC_likeable": 0.9877702142155155,
+            "CFD_All-train85_PCC_threatening": 0.9805765499441049,
+            "CFD_All-train85_PCC_trustworthy": 0.9844225320918044,
+            "CFD_All-test85_MAE_attractive": 0.34302115577567643,
+            "CFD_All-test85_MAE_competent": 0.2706342583947463,
+            "CFD_All-test85_MAE_dominant": 0.3711947374770188,
+            "CFD_All-test85_MAE_extroverted": 0.3395273581631538,
+            "CFD_All-test85_MAE_likeable": 0.3475295844046626,
+            "CFD_All-test85_MAE_threatening": 0.3662872220838248,
+            "CFD_All-test85_MAE_trustworthy": 0.31785188796861785,
+            "CFD_All-test85_PCC_attractive": 0.6923623813247489,
+            "CFD_All-test85_PCC_competent": 0.5298753522748483,
+            "CFD_All-test85_PCC_dominant": 0.4002747375164229,
+            "CFD_All-test85_PCC_extroverted": 0.5049141744055164,
+            "CFD_All-test85_PCC_likeable": 0.6766676181050586,
+            "CFD_All-test85_PCC_threatening": 0.28791712248660856,
+            "CFD_All-test85_PCC_trustworthy": 0.4985760620177916,
+            "lr": 0.001,
+            "loss": 0.022390099242329597,
+            "step": 2080
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_scut_sfd"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "scut-regression-sfd",
+        "training": {
+            "data": {
+                "dataset": "SCUT5500",
+                "set": "train60",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "crop_face_sfd_0.8",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "SCUT5500",
+                    "set": "test40",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "crop_face_sfd_0.8",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive"
+            ],
+            "type": "resnet152",
+            "multi_target": false,
+            "weights": null,
+            "weights_transform": null
+        },
+        "started_training": "2018-11-28-17-18",
+        "hash": "45a62ffb289ecd6398e0ae701cac9044f099cb02",
+        "last_results": {
+            "SCUT5500-test40_MAE_attractive": 0.260262645154109,
+            "lr": 1.0000000000000003e-05,
+            "loss": 0.2684152126312256,
+            "step": 56576
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_scut_warp_rcrop"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "scut_warp_rcrop",
+        "training": {
+            "data": {
+                "dataset": "SCUT5500",
+                "set": "train60",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "crop_face_warp_224_26_126_26_56",
+                "resize_256",
+                "random_crop_224",
+                "random_flip",
+                "normalize_pretrained"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1,
+            "weight_decay": 0
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "SCUT5500",
+                    "set": "train60",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive"
+                    ]
+                },
+                {
+                    "dataset": "SCUT5500",
+                    "set": "test40",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "crop_face_warp_224_26_126_26_56",
+                "resize_256",
+                "center_crop",
+                "normalize_pretrained"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive"
+            ],
+            "type": "resnet152",
+            "multi_target": false,
+            "weights": null,
+            "weights_transform": null
+        },
+        "started_training": "2018-12-07-18-33",
+        "hash": "ba870edee77e76353c24c9d6562fbb0ecba93aa4",
+        "last_results": {
+            "SCUT5500-train60_MAE_attractive": 0.14340501681207296,
+            "SCUT5500-train60_PCC_attractive": 0.966687446640124,
+            "SCUT5500-test40_MAE_attractive": 0.25049184089415005,
+            "SCUT5500-test40_PCC_attractive": 0.8790812609233345,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.38082367181777954,
+            "step": 79872
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_warp_rcrop_pretrained"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_warp_rcrop_pretrained",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_warp_224_26_126_26_56",
+                "resize_256",
+                "random_crop_224",
+                "random_flip",
+                "normalize_pretrained"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1,
+            "weight_decay": 0
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_warp_224_26_126_26_56",
+                "resize_256",
+                "center_crop",
+                "normalize_pretrained"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": "~/tensorboard/facial-beauty-prediction/scut-regression-sfd-2018-11-28-17-18/checkpoint_16.pth",
+            "weights_transform": null
+        },
+        "started_training": "2018-12-07-18-33",
+        "hash": "5d55516881472d2b4490a30df6fa44303b8bb81c",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.15370452888708613,
+            "CFD_All-train85_MAE_competent": 0.13599818234510913,
+            "CFD_All-train85_MAE_dominant": 0.1407291225900675,
+            "CFD_All-train85_MAE_extroverted": 0.1347389309524323,
+            "CFD_All-train85_MAE_likeable": 0.1448229876431951,
+            "CFD_All-train85_MAE_threatening": 0.14371361492566279,
+            "CFD_All-train85_MAE_trustworthy": 0.1434536833959282,
+            "CFD_All-train85_PCC_attractive": 0.9552823420057389,
+            "CFD_All-train85_PCC_competent": 0.9116893006919649,
+            "CFD_All-train85_PCC_dominant": 0.9164778245883204,
+            "CFD_All-train85_PCC_extroverted": 0.9411848269736035,
+            "CFD_All-train85_PCC_likeable": 0.9421073152592734,
+            "CFD_All-train85_PCC_threatening": 0.9108086749601333,
+            "CFD_All-train85_PCC_trustworthy": 0.9109728699674194,
+            "CFD_All-test85_MAE_attractive": 0.35480014075420463,
+            "CFD_All-test85_MAE_competent": 0.24319101317762865,
+            "CFD_All-test85_MAE_dominant": 0.33340052160888234,
+            "CFD_All-test85_MAE_extroverted": 0.3034142628626437,
+            "CFD_All-test85_MAE_likeable": 0.28298155311197076,
+            "CFD_All-test85_MAE_threatening": 0.34058360159283835,
+            "CFD_All-test85_MAE_trustworthy": 0.2902014826831082,
+            "CFD_All-test85_PCC_attractive": 0.6617776832659364,
+            "CFD_All-test85_PCC_competent": 0.6101607254901975,
+            "CFD_All-test85_PCC_dominant": 0.45146801720419727,
+            "CFD_All-test85_PCC_extroverted": 0.5945608174833213,
+            "CFD_All-test85_PCC_likeable": 0.7610004935868855,
+            "CFD_All-test85_PCC_threatening": 0.44544444045667325,
+            "CFD_All-test85_PCC_trustworthy": 0.6336650258681417,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.047014836221933365,
+            "step": 9984
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_sfd_pretrained_wd01"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_sfd_pretrained_wd01",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1,
+            "weight_decay": 0.01
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": "~/tensorboard/facial-beauty-prediction/scut-regression-sfd-2018-11-28-17-18/checkpoint_16.pth",
+            "weights_transform": null
+        },
+        "started_training": "2018-11-30-14-42",
+        "hash": "71f922eb26c05efb2f2c567f3d9de5f6f1f4fa2e",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.03928789450284636,
+            "CFD_All-train85_MAE_competent": 0.03602540426696911,
+            "CFD_All-train85_MAE_dominant": 0.0421083344727315,
+            "CFD_All-train85_MAE_extroverted": 0.034625432493515455,
+            "CFD_All-train85_MAE_likeable": 0.03534699877959934,
+            "CFD_All-train85_MAE_threatening": 0.033719703125571016,
+            "CFD_All-train85_MAE_trustworthy": 0.036518308202301016,
+            "CFD_All-train85_PCC_attractive": 0.9980740141556957,
+            "CFD_All-train85_PCC_competent": 0.9962925468797275,
+            "CFD_All-train85_PCC_dominant": 0.9965528437709861,
+            "CFD_All-train85_PCC_extroverted": 0.9975942629810954,
+            "CFD_All-train85_PCC_likeable": 0.9976401625987501,
+            "CFD_All-train85_PCC_threatening": 0.9974030290927136,
+            "CFD_All-train85_PCC_trustworthy": 0.9966362603400085,
+            "CFD_All-test85_MAE_attractive": 0.3447441431090622,
+            "CFD_All-test85_MAE_competent": 0.2401379912418585,
+            "CFD_All-test85_MAE_dominant": 0.32579441743299165,
+            "CFD_All-test85_MAE_extroverted": 0.3128273866986455,
+            "CFD_All-test85_MAE_likeable": 0.330119758292014,
+            "CFD_All-test85_MAE_threatening": 0.3353335363458889,
+            "CFD_All-test85_MAE_trustworthy": 0.32247494223863793,
+            "CFD_All-test85_PCC_attractive": 0.6730464337665634,
+            "CFD_All-test85_PCC_competent": 0.6039264010825042,
+            "CFD_All-test85_PCC_dominant": 0.5083756339565766,
+            "CFD_All-test85_PCC_extroverted": 0.6081572765284927,
+            "CFD_All-test85_PCC_likeable": 0.6619921892300821,
+            "CFD_All-test85_PCC_threatening": 0.4767773309473393,
+            "CFD_All-test85_PCC_trustworthy": 0.5314809338049348,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.004770743660628796,
+            "step": 9984
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_sfd"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_sfd",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": null,
+            "weights_transform": null
+        },
+        "started_training": "2018-11-28-16-03",
+        "hash": "29059fe3fa82814a2000253c3a15a6a3c45de098",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.048896965311254724,
+            "CFD_All-train85_MAE_competent": 0.05532015766216366,
+            "CFD_All-train85_MAE_dominant": 0.05468254429852577,
+            "CFD_All-train85_MAE_extroverted": 0.042784680403725864,
+            "CFD_All-train85_MAE_likeable": 0.04360672359120126,
+            "CFD_All-train85_MAE_threatening": 0.055036793490747894,
+            "CFD_All-train85_MAE_trustworthy": 0.04616184322450702,
+            "CFD_All-test85_MAE_attractive": 0.32920840522895356,
+            "CFD_All-test85_MAE_competent": 0.28484863697165114,
+            "CFD_All-test85_MAE_dominant": 0.359311277113125,
+            "CFD_All-test85_MAE_extroverted": 0.2989339733903617,
+            "CFD_All-test85_MAE_likeable": 0.3127437617135846,
+            "CFD_All-test85_MAE_threatening": 0.36372324649844134,
+            "CFD_All-test85_MAE_trustworthy": 0.31909112636077613,
+            "lr": 1.0000000000000003e-05,
+            "loss": 0.01737176440656185,
+            "step": 6656
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_scut_sfd_gray"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "scut-regression-sfd",
+        "training": {
+            "data": {
+                "dataset": "SCUT5500",
+                "set": "train60",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "SCUT5500",
+                    "set": "test40",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive"
+            ],
+            "type": "resnet152",
+            "multi_target": false,
+            "weights": null,
+            "weights_transform": null
+        },
+        "started_training": "2018-11-30-13-13",
+        "hash": "e0435cd41c4e7519df780ad940be31319850222a",
+        "last_results": {
+            "SCUT5500-test40_MAE_attractive": 0.26917570224375115,
+            "SCUT5500-test40_PCC_attractive": 0.8603863840598415,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.16971355676651,
+            "step": 79872
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_sfd_pretrained_gray"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_sfd_pretrained",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "pretrained_imagenet"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "pretrained_imagenet"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": "~/tensorboard/facial-beauty-prediction/scut-regression-sfd-2018-11-28-17-18/checkpoint_16.pth",
+            "weights_transform": null
+        },
+        "started_training": "2018-11-30-10-12",
+        "hash": "3c17eef79d6b9a9a62dab6488e29f63bfc311276",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.04420728253405612,
+            "CFD_All-train85_MAE_competent": 0.04085852295336586,
+            "CFD_All-train85_MAE_dominant": 0.03995252402219678,
+            "CFD_All-train85_MAE_extroverted": 0.04552512207062726,
+            "CFD_All-train85_MAE_likeable": 0.04090796634633404,
+            "CFD_All-train85_MAE_threatening": 0.03702658148464926,
+            "CFD_All-train85_MAE_trustworthy": 0.03737727548067378,
+            "CFD_All-train85_PCC_attractive": 0.9978489120612328,
+            "CFD_All-train85_PCC_competent": 0.9962822240880636,
+            "CFD_All-train85_PCC_dominant": 0.9961616658990068,
+            "CFD_All-train85_PCC_extroverted": 0.9961923650395683,
+            "CFD_All-train85_PCC_likeable": 0.9971659078328967,
+            "CFD_All-train85_PCC_threatening": 0.9964003475550771,
+            "CFD_All-train85_PCC_trustworthy": 0.9967148002628953,
+            "CFD_All-test85_MAE_attractive": 0.3192656737798366,
+            "CFD_All-test85_MAE_competent": 0.24317986233842023,
+            "CFD_All-test85_MAE_dominant": 0.31961487682626316,
+            "CFD_All-test85_MAE_extroverted": 0.3147139009918374,
+            "CFD_All-test85_MAE_likeable": 0.32149657456603453,
+            "CFD_All-test85_MAE_threatening": 0.34685559943503413,
+            "CFD_All-test85_MAE_trustworthy": 0.3228438861009599,
+            "CFD_All-test85_PCC_attractive": 0.72751748857081,
+            "CFD_All-test85_PCC_competent": 0.6161006959925566,
+            "CFD_All-test85_PCC_dominant": 0.5326586245340313,
+            "CFD_All-test85_PCC_extroverted": 0.591851055469684,
+            "CFD_All-test85_PCC_likeable": 0.6876945578239994,
+            "CFD_All-test85_PCC_threatening": 0.4277583279588634,
+            "CFD_All-test85_PCC_trustworthy": 0.5410049106605872,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.010609536431729794,
+            "step": 9984
+        }
+    },
+    {
+        "log_dir": "/home/manuel/tensorboard/facial-beauty-prediction",
+        "config": [
+            "training/cfg/config_marvin.py",
+            "train_cfd_all_multi_target_sfd_pretrained_aug"
+        ],
+        "no_cuda": false,
+        "cuda": true,
+        "gpuid": "-1",
+        "name": "cfd_all_multi_target_sfd_pretrained_aug",
+        "training": {
+            "data": {
+                "dataset": "CFD_All",
+                "set": "train85",
+                "base": "~/datasets",
+                "traits": [
+                    "attractive",
+                    "competent",
+                    "dominant",
+                    "extroverted",
+                    "likeable",
+                    "threatening",
+                    "trustworthy"
+                ]
+            },
+            "batchsize": 32,
+            "shuffle": true,
+            "worker": 0,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "random_crop",
+                "normalize_pretrained"
+            ],
+            "visualize_input": true
+        },
+        "start_epoch": 0,
+        "epochs": 25,
+        "optimizer": {
+            "lr": 0.001,
+            "momentum": 0.9,
+            "step_size": 7,
+            "gamma": 0.1
+        },
+        "validation": {
+            "data": [
+                {
+                    "dataset": "CFD_All",
+                    "set": "train85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                },
+                {
+                    "dataset": "CFD_All",
+                    "set": "test85",
+                    "base": "~/datasets",
+                    "traits": [
+                        "attractive",
+                        "competent",
+                        "dominant",
+                        "extroverted",
+                        "likeable",
+                        "threatening",
+                        "trustworthy"
+                    ]
+                }
+            ],
+            "batchsize": 64,
+            "worker": 0,
+            "plot": true,
+            "transform": [
+                "resize_aspect_500",
+                "crop_face_sfd_0.8",
+                "grayscale",
+                "center_crop",
+                "normalize_pretrained"
+            ]
+        },
+        "model": {
+            "traits": [
+                "attractive",
+                "competent",
+                "dominant",
+                "extroverted",
+                "likeable",
+                "threatening",
+                "trustworthy"
+            ],
+            "type": "resnet152",
+            "multi_target": true,
+            "weights": "~/tensorboard/facial-beauty-prediction/scut-regression-sfd-2018-11-28-17-18/checkpoint_16.pth",
+            "weights_transform": null
+        },
+        "started_training": "2018-11-30-14-29",
+        "hash": "ad37495f3d1e74680615fc02d43674fa2d7d82d6",
+        "last_results": {
+            "CFD_All-train85_MAE_attractive": 0.24639896526740432,
+            "CFD_All-train85_MAE_competent": 0.21865434816773133,
+            "CFD_All-train85_MAE_dominant": 0.27152964129050416,
+            "CFD_All-train85_MAE_extroverted": 0.23749377343108793,
+            "CFD_All-train85_MAE_likeable": 0.23891182019907606,
+            "CFD_All-train85_MAE_threatening": 0.2467414941122996,
+            "CFD_All-train85_MAE_trustworthy": 0.2472000524423543,
+            "CFD_All-train85_PCC_attractive": 0.8677076725490375,
+            "CFD_All-train85_PCC_competent": 0.7659438874989326,
+            "CFD_All-train85_PCC_dominant": 0.7310598354496558,
+            "CFD_All-train85_PCC_extroverted": 0.8005681947461292,
+            "CFD_All-train85_PCC_likeable": 0.8376635568922883,
+            "CFD_All-train85_PCC_threatening": 0.7337284528424682,
+            "CFD_All-train85_PCC_trustworthy": 0.7202142829597381,
+            "CFD_All-test85_MAE_attractive": 0.3268379102151075,
+            "CFD_All-test85_MAE_competent": 0.24041777128265593,
+            "CFD_All-test85_MAE_dominant": 0.2822443107286191,
+            "CFD_All-test85_MAE_extroverted": 0.31453842209084926,
+            "CFD_All-test85_MAE_likeable": 0.3350622906827668,
+            "CFD_All-test85_MAE_threatening": 0.35106136796380066,
+            "CFD_All-test85_MAE_trustworthy": 0.2957750546963324,
+            "CFD_All-test85_PCC_attractive": 0.6749328220495429,
+            "CFD_All-test85_PCC_competent": 0.6215683348256041,
+            "CFD_All-test85_PCC_dominant": 0.6681791916086273,
+            "CFD_All-test85_PCC_extroverted": 0.5179564045495862,
+            "CFD_All-test85_PCC_likeable": 0.6465955451174366,
+            "CFD_All-test85_PCC_threatening": 0.40126460677775994,
+            "CFD_All-test85_PCC_trustworthy": 0.5470902879530894,
+            "lr": 1.0000000000000002e-06,
+            "loss": 0.1870742291212082,
+            "step": 9984
+        }
+    }
+]
